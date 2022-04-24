@@ -32,7 +32,7 @@ print(len(test_labels))
 print(len(pred_labels))
 print(accuracy_score(test_labels, pred_labels))
 '''
-params = {'weights': ['uniform', 'distance'], 'n_neighbors': [1,2,3,4,5,6,7,8,9,10], 'metric': ['manhattan', 'euclidean']}
+params = {'weights': ['uniform', 'distance'], 'n_neighbors': [1,2,3,4,5], 'metric': ['euclidean']}
 train_labels = np.ravel(train_labels)
 clf_grid = GridSearchCV(clf, params, cv=5, scoring='accuracy', n_jobs=-1)
 clf_grid.fit(train_feature_matrix, train_labels)
@@ -51,5 +51,5 @@ plt.figure(figsize=(10, 8))
 plt.bar(range(1, 8), pred_freq, width=0.4, align="edge", label='prediction')
 plt.bar(range(1, 8), freq, width=-0.4, align="edge", label='real')
 plt.legend()
-#plt.show()
+plt.show()
 print(pred_prob[2],pred_freq[2])
